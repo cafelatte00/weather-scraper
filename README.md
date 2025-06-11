@@ -35,3 +35,16 @@
 | 2025-06-09 12:34:56 | 晴れ | 30   | 22   | 10%   | 20%   | 10%   | 0%    |
 
 
+
+## 定期実行　cron（クーロン）の設定
+
+毎日決まった時間にスクリプトを自動実行するために、以下のようなcron（クーロン）ジョブを設定しています。
+
+```bash
+0 1 * * * /Users/yourusername/python_scraping/run_scraping.sh >> /Users/yourusername/python_scraping/log.txt 2>&1
+30 6 * * * /Users/yourusername/python_scraping/run_scraping.sh >> /Users/yourusername/python_scraping/log.txt 2>&1
+```
+
+- run_scraping.sh が仮想環境の有効化と scraping.py の実行を行います。
+- 実行結果やエラーメッセージは log.txt に保存されます。
+- ユーザー名が環境ごとに異なるため、適宜パスを書き換えてください。
